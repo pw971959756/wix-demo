@@ -12,6 +12,7 @@ for (let i = 0; i < count; i++) {
     timestamp: +Mock.Random.date('T'),
     author: '@first',
     reviewer: '@first',
+    temp: 'TEMP',
     title: '@title(5, 10)',
     content_short: 'mock data',
     content: baseContent,
@@ -32,6 +33,36 @@ module.exports = [
     url: '/vue-element-admin/article/list',
     type: 'get',
     response: config => {
+      console.log(config.query)
+      //----------------------------------------------------
+      var fs = require('fs')
+      fs.writeFile('./gg.txt', '第一行\r\n第二行', function (err) {
+        if (err) {
+          console.log
+        } else {
+          console.log('写文件操作成功')
+        }
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      //----------------------------------------------------
       const { importance, type, title, page = 1, limit = 20, sort } = config.query
 
       let mockList = List.filter(item => {
